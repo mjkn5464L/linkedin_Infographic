@@ -13,40 +13,42 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
-            animation: backgroundShift 10s ease-in-out infinite alternate;
         }
 
-        @keyframes backgroundShift {
-            0% { background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%); }
-            100% { background: linear-gradient(135deg, #f093fb 0%, #667eea 50%, #764ba2 100%); }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .infographic {
             background: white;
             border-radius: 25px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
-            max-width: 900px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+            max-width: 950px;
             width: 100%;
             overflow: hidden;
             position: relative;
-            transform: perspective(1000px) rotateX(2deg);
-            transition: transform 0.3s ease;
+            animation: float 6s ease-in-out infinite;
         }
 
-        .infographic:hover {
-            transform: perspective(1000px) rotateX(0deg) scale(1.02);
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
 
         .header {
-            background: linear-gradient(135deg, #2c3e50 0%, #3498db 50%, #9b59b6 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 50px 30px;
+            padding: 50px 40px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -55,53 +57,57 @@
         .header::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 20%, rgba(255,255,255,0.1) 2px, transparent 2px),
-                radial-gradient(circle at 80% 40%, rgba(255,255,255,0.08) 1.5px, transparent 1.5px),
-                radial-gradient(circle at 40% 80%, rgba(255,255,255,0.06) 1px, transparent 1px),
-                radial-gradient(circle at 90% 20%, rgba(255,255,255,0.05) 1px, transparent 1px),
-                radial-gradient(circle at 10% 90%, rgba(255,255,255,0.07) 1.5px, transparent 1.5px);
-            animation: float 6s ease-in-out infinite;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent,
+                rgba(255,255,255,0.1),
+                transparent
+            );
+            animation: shine 4s infinite;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-10px) rotate(2deg); }
+        @keyframes shine {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         .header h1 {
-            font-size: 3em;
+            font-size: 3.2em;
             font-weight: bold;
             margin-bottom: 20px;
             position: relative;
-            z-index: 1;
+            z-index: 2;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            animation: glow 3s ease-in-out infinite alternate;
+            animation: titleGlow 3s ease-in-out infinite alternate;
         }
 
-        @keyframes glow {
-            from { text-shadow: 2px 2px 4px rgba(0,0,0,0.3), 0 0 10px rgba(255,255,255,0.2); }
-            to { text-shadow: 2px 2px 4px rgba(0,0,0,0.3), 0 0 20px rgba(255,255,255,0.4); }
+        @keyframes titleGlow {
+            from { 
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.3), 0 0 10px rgba(255,255,255,0.3);
+                transform: scale(1);
+            }
+            to { 
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.3), 0 0 25px rgba(255,255,255,0.6);
+                transform: scale(1.02);
+            }
         }
 
         .header .subtitle {
-            font-size: 1.3em;
+            font-size: 1.4em;
             opacity: 0.95;
             position: relative;
-            z-index: 1;
-            animation: fadeInUp 1s ease 0.5s both;
+            z-index: 2;
         }
 
         .key-stat {
-            background: linear-gradient(135deg, #ff6b6b 0%, #feca57 50%, #ff9ff3 100%);
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             color: white;
-            padding: 35px;
+            padding: 40px;
             text-align: center;
-            margin: 0;
             position: relative;
             overflow: hidden;
         }
@@ -109,22 +115,27 @@
         .key-stat::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-            animation: shimmer 3s infinite;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255,255,255,0.2),
+                transparent
+            );
+            animation: sweep 3s infinite;
         }
 
-        @keyframes shimmer {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        @keyframes sweep {
+            0% { left: -100%; }
+            100% { left: 100%; }
         }
 
         .key-stat h2 {
-            font-size: 2.2em;
-            margin-bottom: 15px;
+            font-size: 2.5em;
+            margin-bottom: 20px;
             position: relative;
             z-index: 1;
             animation: bounce 2s ease infinite;
@@ -132,62 +143,62 @@
 
         @keyframes bounce {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
+            50% { transform: translateY(-8px); }
         }
 
         .key-stat p {
-            font-size: 1.2em;
+            font-size: 1.3em;
             line-height: 1.6;
             position: relative;
             z-index: 1;
         }
 
         .habits-container {
-            padding: 50px 30px;
+            padding: 50px 40px;
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             position: relative;
         }
 
-        .habits-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                radial-gradient(circle at 25% 25%, #3498db20 2px, transparent 2px),
-                radial-gradient(circle at 75% 75%, #e74c3c20 2px, transparent 2px),
-                radial-gradient(circle at 85% 25%, #f39c1220 1px, transparent 1px),
-                radial-gradient(circle at 15% 85%, #2ecc7120 1px, transparent 1px);
-            background-size: 100px 100px;
-            animation: patternMove 20s linear infinite;
+        .section-title {
+            text-align: center;
+            font-size: 2.8em;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            font-weight: bold;
+            animation: titlePulse 2s ease-in-out infinite;
         }
 
-        @keyframes patternMove {
-            0% { background-position: 0 0, 0 0, 0 0, 0 0; }
-            100% { background-position: 100px 100px, -100px -100px, 50px -50px, -50px 50px; }
+        @keyframes titlePulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 1.4em;
+            margin-bottom: 40px;
         }
 
         .habits-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 35px;
             margin-top: 40px;
-            position: relative;
-            z-index: 1;
         }
 
         .habit-card {
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            background: white;
             border-radius: 20px;
-            padding: 30px;
-            border: 3px solid transparent;
-            background-clip: padding-box;
+            padding: 35px;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
             cursor: pointer;
+            border: 3px solid transparent;
         }
 
         .habit-card::before {
@@ -207,63 +218,67 @@
         }
 
         .habit-card:hover {
-            transform: translateY(-10px) scale(1.03);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            transform: translateY(-15px) scale(1.05);
         }
 
         .habit-card:nth-child(1) { 
-            border-image: linear-gradient(135deg, #9b59b6, #8e44ad) 1;
-            animation: cardGlow1 4s ease-in-out infinite alternate;
+            border-color: #9b59b6;
+            box-shadow: 0 15px 35px rgba(155, 89, 182, 0.3);
+            animation: cardFloat1 4s ease-in-out infinite;
         }
         .habit-card:nth-child(2) { 
-            border-image: linear-gradient(135deg, #3498db, #2980b9) 1;
-            animation: cardGlow2 4s ease-in-out infinite alternate;
+            border-color: #3498db;
+            box-shadow: 0 15px 35px rgba(52, 152, 219, 0.3);
+            animation: cardFloat2 4s ease-in-out infinite;
         }
         .habit-card:nth-child(3) { 
-            border-image: linear-gradient(135deg, #e74c3c, #c0392b) 1;
-            animation: cardGlow3 4s ease-in-out infinite alternate;
+            border-color: #e74c3c;
+            box-shadow: 0 15px 35px rgba(231, 76, 60, 0.3);
+            animation: cardFloat3 4s ease-in-out infinite;
         }
         .habit-card:nth-child(4) { 
-            border-image: linear-gradient(135deg, #f39c12, #e67e22) 1;
-            animation: cardGlow4 4s ease-in-out infinite alternate;
+            border-color: #f39c12;
+            box-shadow: 0 15px 35px rgba(243, 156, 18, 0.3);
+            animation: cardFloat4 4s ease-in-out infinite;
         }
         .habit-card:nth-child(5) { 
-            border-image: linear-gradient(135deg, #2ecc71, #27ae60) 1;
-            animation: cardGlow5 4s ease-in-out infinite alternate;
+            border-color: #2ecc71;
+            box-shadow: 0 15px 35px rgba(46, 204, 113, 0.3);
+            animation: cardFloat5 4s ease-in-out infinite;
         }
 
-        @keyframes cardGlow1 {
-            0% { box-shadow: 0 10px 20px rgba(155, 89, 182, 0.2); }
-            100% { box-shadow: 0 10px 30px rgba(155, 89, 182, 0.4); }
+        @keyframes cardFloat1 {
+            0%, 100% { transform: translateY(0px); box-shadow: 0 15px 35px rgba(155, 89, 182, 0.3); }
+            50% { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(155, 89, 182, 0.4); }
         }
-        @keyframes cardGlow2 {
-            0% { box-shadow: 0 10px 20px rgba(52, 152, 219, 0.2); }
-            100% { box-shadow: 0 10px 30px rgba(52, 152, 219, 0.4); }
+        @keyframes cardFloat2 {
+            0%, 100% { transform: translateY(0px); box-shadow: 0 15px 35px rgba(52, 152, 219, 0.3); }
+            50% { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(52, 152, 219, 0.4); }
         }
-        @keyframes cardGlow3 {
-            0% { box-shadow: 0 10px 20px rgba(231, 76, 60, 0.2); }
-            100% { box-shadow: 0 10px 30px rgba(231, 76, 60, 0.4); }
+        @keyframes cardFloat3 {
+            0%, 100% { transform: translateY(0px); box-shadow: 0 15px 35px rgba(231, 76, 60, 0.3); }
+            50% { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(231, 76, 60, 0.4); }
         }
-        @keyframes cardGlow4 {
-            0% { box-shadow: 0 10px 20px rgba(243, 156, 18, 0.2); }
-            100% { box-shadow: 0 10px 30px rgba(243, 156, 18, 0.4); }
+        @keyframes cardFloat4 {
+            0%, 100% { transform: translateY(0px); box-shadow: 0 15px 35px rgba(243, 156, 18, 0.3); }
+            50% { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(243, 156, 18, 0.4); }
         }
-        @keyframes cardGlow5 {
-            0% { box-shadow: 0 10px 20px rgba(46, 204, 113, 0.2); }
-            100% { box-shadow: 0 10px 30px rgba(46, 204, 113, 0.4); }
+        @keyframes cardFloat5 {
+            0%, 100% { transform: translateY(0px); box-shadow: 0 15px 35px rgba(46, 204, 113, 0.3); }
+            50% { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(46, 204, 113, 0.4); }
         }
 
         .habit-icon {
-            font-size: 3.5em;
-            margin-bottom: 20px;
+            font-size: 4em;
+            margin-bottom: 25px;
             display: block;
-            animation: iconFloat 3s ease-in-out infinite;
-            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+            animation: iconSpin 6s ease-in-out infinite;
+            filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.2));
         }
 
-        @keyframes iconFloat {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-8px) rotate(5deg); }
+        @keyframes iconSpin {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(10deg) scale(1.1); }
         }
 
         .habit-card:nth-child(1) .habit-icon::before { content: '🧘'; }
@@ -273,11 +288,10 @@
         .habit-card:nth-child(5) .habit-icon::before { content: '💧'; }
 
         .habit-title {
-            font-size: 1.5em;
+            font-size: 1.6em;
             font-weight: bold;
             color: #2c3e50;
-            margin-bottom: 15px;
-            position: relative;
+            margin-bottom: 18px;
         }
 
         .habit-benefit {
@@ -286,46 +300,64 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             font-weight: bold;
-            font-size: 1.2em;
-            margin-bottom: 15px;
-            animation: pulse 2s ease-in-out infinite;
+            font-size: 1.3em;
+            margin-bottom: 18px;
+            animation: textGlow 2s ease-in-out infinite alternate;
         }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
+        @keyframes textGlow {
+            from { filter: brightness(1); }
+            to { filter: brightness(1.3); }
         }
 
         .habit-description {
             color: #5a6c7d;
             line-height: 1.7;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        .research-box {
+            background: linear-gradient(135deg, #ecf0f1 0%, #d5dbdb 100%);
+            padding: 18px;
+            border-radius: 12px;
+            border-left: 5px solid #3498db;
             font-size: 1em;
-            margin-bottom: 15px;
-        }
-
-        .habit-research {
-            background: linear-gradient(135deg, #ecf0f1 0%, #bdc3c7 100%);
-            padding: 15px;
-            border-radius: 10px;
-            border-left: 4px solid #3498db;
-            font-size: 0.9em;
             color: #2c3e50;
-            font-style: italic;
             position: relative;
+            animation: researchPulse 3s ease-in-out infinite;
         }
 
-        .habit-research::before {
+        @keyframes researchPulse {
+            0%, 100% { background: linear-gradient(135deg, #ecf0f1 0%, #d5dbdb 100%); }
+            50% { background: linear-gradient(135deg, #d5dbdb 0%, #ecf0f1 100%); }
+        }
+
+        .research-box::before {
             content: '🔬';
             position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 1.2em;
+            top: 15px;
+            right: 18px;
+            font-size: 1.4em;
+            animation: iconBounce 2s ease-in-out infinite;
+        }
+
+        @keyframes iconBounce {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-3px); }
+        }
+
+        .research-title {
+            font-weight: bold;
+            color: #3498db;
+            margin-bottom: 8px;
+            font-size: 1.05em;
         }
 
         .bottom-section {
-            background: linear-gradient(135deg, #2c3e50 0%, #3498db 50%, #9b59b6 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 40px;
+            padding: 45px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -338,106 +370,71 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-            animation: slideIn 4s infinite;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+            animation: slideAcross 5s infinite;
         }
 
-        @keyframes slideIn {
+        @keyframes slideAcross {
             0% { left: -100%; }
             100% { left: 100%; }
         }
 
         .bottom-section h3 {
-            font-size: 1.8em;
-            margin-bottom: 20px;
+            font-size: 2em;
+            margin-bottom: 25px;
             position: relative;
             z-index: 1;
+            animation: headingPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes headingPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
 
         .bottom-section p {
-            font-size: 1.2em;
+            font-size: 1.3em;
             line-height: 1.7;
             opacity: 0.95;
             position: relative;
             z-index: 1;
         }
 
-        .section-title {
-            text-align: center;
-            font-size: 2.5em;
-            background: linear-gradient(135deg, #2c3e50, #3498db, #9b59b6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 15px;
+        .highlight {
+            color: #f1c40f;
             font-weight: bold;
-            animation: titleShine 3s ease-in-out infinite;
-        }
-
-        @keyframes titleShine {
-            0%, 100% { filter: brightness(1); }
-            50% { filter: brightness(1.2); }
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: #7f8c8d;
-            font-size: 1.3em;
-            margin-bottom: 30px;
-            animation: fadeInUp 1s ease 0.3s both;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
 
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2.2em;
-            }
-            
-            .habits-grid {
+            .header h1 { font-size: 2.4em; }
+            .habits-grid { 
                 grid-template-columns: 1fr;
                 gap: 25px;
             }
-            
-            .infographic {
-                margin: 10px;
-                transform: none;
-            }
-
-            .infographic:hover {
-                transform: scale(1.01);
-            }
+            .infographic { margin: 10px; }
+            .section-title { font-size: 2.2em; }
         }
 
-        /* Entrance animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
+        /* Staggered entrance animations */
+        .habit-card {
+            animation: slideInUp 1s ease forwards;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        @keyframes slideInUp {
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
-        .habit-card {
-            animation: fadeInUp 0.8s ease forwards;
-            opacity: 0;
-        }
-
-        .habit-card:nth-child(1) { animation-delay: 0.1s; }
-        .habit-card:nth-child(2) { animation-delay: 0.2s; }
-        .habit-card:nth-child(3) { animation-delay: 0.3s; }
-        .habit-card:nth-child(4) { animation-delay: 0.4s; }
-        .habit-card:nth-child(5) { animation-delay: 0.5s; }
-
-        /* Attention-grabbing effects */
-        .highlight {
-            background: linear-gradient(45deg, #ff6b6b, #feca57);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: bold;
-        }
+        .habit-card:nth-child(1) { animation-delay: 0.2s; }
+        .habit-card:nth-child(2) { animation-delay: 0.4s; }
+        .habit-card:nth-child(3) { animation-delay: 0.6s; }
+        .habit-card:nth-child(4) { animation-delay: 0.8s; }
+        .habit-card:nth-child(5) { animation-delay: 1.0s; }
     </style>
 </head>
 <body>
@@ -465,8 +462,9 @@
                     <h3 class="habit-title">Meditation & Mindfulness</h3>
                     <p class="habit-benefit">13 minutes daily = Improved attention & memory</p>
                     <p class="habit-description">Just 8 weeks of brief morning meditation physically changes brain structure, increasing cortical thickness in the prefrontal cortex and reducing amygdala reactivity.</p>
-                    <div class="habit-research">
-                        Harvard & MGH neuroimaging studies show lasting brain changes 3 months post-intervention, with improved working memory and recognition.
+                    <div class="research-box">
+                        <div class="research-title">Scientific Evidence:</div>
+                        Harvard & MGH neuroimaging studies show lasting brain changes 3 months post-intervention, with improved working memory and recognition across 280,000+ participants in 103 countries.
                     </div>
                 </div>
 
@@ -475,8 +473,9 @@
                     <h3 class="habit-title">Cold Exposure Therapy</h3>
                     <p class="habit-benefit">29% reduction in sick days</p>
                     <p class="habit-description">11 minutes total per week at 50-59°F activates immune response, reduces inflammatory markers, and boosts metabolic rate by up to 16%.</p>
-                    <div class="habit-research">
-                        Radboud University & Netherlands study of 3,000+ participants found significant increases in immunoglobulins (IgG, IgA, IgM).
+                    <div class="research-box">
+                        <div class="research-title">Scientific Evidence:</div>
+                        Radboud University & Netherlands study of 3,000+ participants found significant increases in immunoglobulins (IgG, IgA, IgM) and brown fat activation.
                     </div>
                 </div>
 
@@ -485,8 +484,9 @@
                     <h3 class="habit-title">Gratitude Journaling</h3>
                     <p class="habit-benefit">42% higher goal completion rate</p>
                     <p class="habit-description">Writing down 3 things you're grateful for creates lasting brain changes in the medial prefrontal cortex while reducing cortisol levels and improving stress resilience.</p>
-                    <div class="habit-research">
-                        Meta-analysis of 25 randomized controlled trials with 6,745 participants + UC Berkeley research confirms lasting brain changes.
+                    <div class="research-box">
+                        <div class="research-title">Scientific Evidence:</div>
+                        Meta-analysis of 25 randomized controlled trials with 6,745 participants + UC Berkeley research confirms lasting brain changes and moderate effect sizes (Hedges' g = 0.22).
                     </div>
                 </div>
 
@@ -494,9 +494,10 @@
                     <span class="habit-icon"></span>
                     <h3 class="habit-title">Strategic Reading</h3>
                     <p class="habit-benefit">Enhanced vocabulary & cognitive retention</p>
-                    <p class="habit-description">Early morning reading enhances retention and comprehension. Fortune 500 executives with morning reading habits show better decision-making capabilities.</p>
-                    <div class="habit-research">
-                        Cambridge University research + 14-year longitudinal study show reading prevents cognitive decline and enhances brain volume.
+                    <p class="habit-description">Early morning reading enhances retention and comprehension. Fortune 500 executives with morning reading habits show better decision-making capabilities and strategic thinking.</p>
+                    <div class="research-box">
+                        <div class="research-title">Scientific Evidence:</div>
+                        Cambridge University research + 14-year longitudinal study show reading prevents cognitive decline, increases brain volume, and enhances language development across all age groups.
                     </div>
                 </div>
 
@@ -505,8 +506,9 @@
                     <h3 class="habit-title">Strategic Hydration</h3>
                     <p class="habit-benefit">12% improvement in cognitive function</p>
                     <p class="habit-description">20-32 ounces of water with electrolytes upon waking kickstarts metabolism, combats sleep dehydration, and enhances physical performance throughout the day.</p>
-                    <div class="habit-research">
-                        Multiple studies show proper morning hydration with electrolytes improves cellular hydration and reduces cortisol response to exercise.
+                    <div class="research-box">
+                        <div class="research-title">Scientific Evidence:</div>
+                        Multiple studies show proper morning hydration with electrolytes improves cellular hydration, reduces cortisol response to exercise, and enhances athletic performance metrics.
                     </div>
                 </div>
             </div>
