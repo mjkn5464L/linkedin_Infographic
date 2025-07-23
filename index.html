@@ -9,7 +9,7 @@
             margin: 0;
             padding: 20px;
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #f0f0f0;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -19,9 +19,9 @@
         .infographic {
             width: 1080px;
             height: 1350px;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
             border-radius: 20px;
-            padding: 30px;
+            padding: 40px;
             box-sizing: border-box;
             color: white;
             position: relative;
@@ -29,29 +29,31 @@
         }
         
         .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            padding: 30px;
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
         
         .main-title {
-            font-size: 42px;
+            font-size: 36px;
             font-weight: bold;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
         
         .subtitle {
-            font-size: 22px;
+            font-size: 18px;
             opacity: 0.9;
-            margin-bottom: 25px;
         }
         
         .boost-section {
             background: linear-gradient(45deg, #ff6b6b, #feca57);
             border-radius: 15px;
-            padding: 20px;
+            padding: 25px;
             text-align: center;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
         
         .boost-title {
@@ -66,10 +68,10 @@
         }
         
         .habits-section {
-            background: rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.95);
             border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
         }
         
         .habits-title {
@@ -77,46 +79,52 @@
             font-weight: bold;
             text-align: center;
             margin-bottom: 10px;
+            color: #667eea;
         }
         
         .habits-subtitle {
             font-size: 18px;
             text-align: center;
-            opacity: 0.9;
+            opacity: 0.7;
             margin-bottom: 25px;
+            color: #333;
         }
         
         .habit {
-            background: rgba(255,255,255,0.98);
+            background: white;
             color: #333;
-            border-radius: 12px;
-            padding: 15px;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            border-left: 5px solid;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border: 3px solid transparent;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         
-        .habit:nth-child(3) { border-left-color: #4ecdc4; }
-        .habit:nth-child(4) { border-left-color: #45b7d1; }
-        .habit:nth-child(5) { border-left-color: #f39c12; }
-        .habit:nth-child(6) { border-left-color: #e67e22; }
-        .habit:nth-child(7) { border-left-color: #3498db; }
+        .habit:nth-child(3) { border-color: #4ecdc4; }
+        .habit:nth-child(4) { border-color: #45b7d1; }
+        .habit:nth-child(5) { border-color: #f39c12; }
+        .habit:nth-child(6) { border-color: #e67e22; }
+        .habit:nth-child(7) { border-color: #3498db; }
+        
+        .habit-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
         
         .habit-icon {
-            font-size: 24px;
-            width: 40px;
+            font-size: 40px;
+            margin-right: 15px;
+            width: 60px;
             text-align: center;
-            flex-shrink: 0;
         }
         
-        .habit-content {
+        .habit-title-section {
             flex: 1;
         }
         
         .habit-title {
-            font-size: 18px;
+            font-size: 22px;
             font-weight: bold;
             margin-bottom: 5px;
             color: #2c3e50;
@@ -126,53 +134,57 @@
             font-size: 16px;
             color: #e74c3c;
             font-weight: bold;
-            margin-bottom: 8px;
         }
         
         .habit-description {
             font-size: 14px;
-            line-height: 1.4;
+            line-height: 1.5;
             color: #555;
+            margin-bottom: 15px;
         }
         
         .evidence-box {
-            background: rgba(52, 152, 219, 0.1);
-            border: 1px solid rgba(52, 152, 219, 0.3);
-            border-radius: 8px;
-            padding: 12px;
-            margin-top: 10px;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-radius: 10px;
+            padding: 15px;
+            border-left: 4px solid #2196f3;
+        }
+        
+        .evidence-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
         }
         
         .evidence-title {
-            font-size: 12px;
+            font-size: 14px;
             font-weight: bold;
-            color: #3498db;
-            margin-bottom: 5px;
+            color: #1976d2;
+            margin-left: 5px;
         }
         
         .evidence-text {
-            font-size: 11px;
+            font-size: 12px;
             color: #666;
-            line-height: 1.3;
+            line-height: 1.4;
         }
         
         .pro-tip {
-            background: linear-gradient(45deg, #ff6b35, #f7931e);
-            border-radius: 12px;
-            padding: 15px;
+            background: linear-gradient(45deg, #8b5cf6, #a855f7);
+            border-radius: 15px;
+            padding: 25px;
             text-align: center;
-            margin-top: 15px;
         }
         
         .pro-tip-title {
-            font-size: 22px;
+            font-size: 24px;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
         
         .pro-tip-text {
-            font-size: 15px;
-            line-height: 1.4;
+            font-size: 16px;
+            line-height: 1.5;
         }
     </style>
 </head>
@@ -193,67 +205,92 @@
             <p class="habits-subtitle">Transform your mornings with science-backed practices</p>
             
             <div class="habit">
-                <div class="habit-icon">🧘</div>
-                <div class="habit-content">
-                    <div class="habit-title">Meditation & Mindfulness</div>
-                    <div class="habit-stat">13 minutes daily • Improved attention & memory</div>
-                    <div class="habit-description">Just 8 weeks of brief morning meditation physically changes brain structure, increasing cortical thickness in the prefrontal cortex and reducing amygdala reactivity.</div>
-                    <div class="evidence-box">
-                        <div class="evidence-title">Scientific Evidence: 🧠</div>
-                        <div class="evidence-text">Harvard & MGH neuroimaging studies show lasting brain changes 3 months post-intervention, with improved working memory and recognition across all participants in 109 countries.</div>
+                <div class="habit-header">
+                    <div class="habit-icon">🧘</div>
+                    <div class="habit-title-section">
+                        <div class="habit-title">Meditation & Mindfulness</div>
+                        <div class="habit-stat">13 minutes daily • Improved attention & memory</div>
                     </div>
+                </div>
+                <div class="habit-description">Just 8 weeks of brief morning meditation physically changes brain structure, increasing cortical thickness in the prefrontal cortex and reducing amygdala reactivity.</div>
+                <div class="evidence-box">
+                    <div class="evidence-header">
+                        <span style="font-size: 16px;">🧠</span>
+                        <div class="evidence-title">Scientific Evidence:</div>
+                    </div>
+                    <div class="evidence-text">Harvard & MGH neuroimaging studies show lasting brain changes 3 months post-intervention, with improved working memory and recognition across all participants in 109 countries.</div>
                 </div>
             </div>
             
             <div class="habit">
-                <div class="habit-icon">🧊</div>
-                <div class="habit-content">
-                    <div class="habit-title">Cold Exposure Therapy</div>
-                    <div class="habit-stat">29% reduction in sick days</div>
-                    <div class="habit-description">11 minutes total per week at 50-59°F activates immune response, reduces inflammatory markers, and boosts metabolic rate by up to 16%.</div>
-                    <div class="evidence-box">
-                        <div class="evidence-title">Scientific Evidence: 🧠</div>
-                        <div class="evidence-text">Radboud University & Netherlands study of 3,000+ participants found increases in immunoglobulins (IgA, IgM) and brown fat activation.</div>
+                <div class="habit-header">
+                    <div class="habit-icon">🧊</div>
+                    <div class="habit-title-section">
+                        <div class="habit-title">Cold Exposure Therapy</div>
+                        <div class="habit-stat">29% reduction in sick days</div>
                     </div>
+                </div>
+                <div class="habit-description">11 minutes total per week at 50-59°F activates immune response, reduces inflammatory markers, and boosts metabolic rate by up to 16%.</div>
+                <div class="evidence-box">
+                    <div class="evidence-header">
+                        <span style="font-size: 16px;">🧠</span>
+                        <div class="evidence-title">Scientific Evidence:</div>
+                    </div>
+                    <div class="evidence-text">Radboud University & Netherlands study of 3,000+ participants found increases in immunoglobulins (IgA, IgM) and brown fat activation.</div>
                 </div>
             </div>
             
             <div class="habit">
-                <div class="habit-icon">📝</div>
-                <div class="habit-content">
-                    <div class="habit-title">Gratitude Journaling</div>
-                    <div class="habit-stat">42% higher goal completion rate</div>
-                    <div class="habit-description">Writing down 3 things you're grateful for creates lasting brain changes in the medial prefrontal cortex while reducing cortisol levels and improving stress resilience.</div>
-                    <div class="evidence-box">
-                        <div class="evidence-title">Scientific Evidence: 🧠</div>
-                        <div class="evidence-text">Analysis of 25 scientific studies involving nearly 7,000 people, plus UC Berkeley research, confirms gratitude practices create real, measurable brain changes and lasting improvements.</div>
+                <div class="habit-header">
+                    <div class="habit-icon">📝</div>
+                    <div class="habit-title-section">
+                        <div class="habit-title">Gratitude Journaling</div>
+                        <div class="habit-stat">42% higher goal completion rate</div>
                     </div>
+                </div>
+                <div class="habit-description">Writing down 3 things you're grateful for creates lasting brain changes in the medial prefrontal cortex while reducing cortisol levels and improving stress resilience.</div>
+                <div class="evidence-box">
+                    <div class="evidence-header">
+                        <span style="font-size: 16px;">🧠</span>
+                        <div class="evidence-title">Scientific Evidence:</div>
+                    </div>
+                    <div class="evidence-text">Analysis of 25 scientific studies involving nearly 7,000 people, plus UC Berkeley research, confirms gratitude practices create real, measurable brain changes and lasting improvements.</div>
                 </div>
             </div>
             
             <div class="habit">
-                <div class="habit-icon">📚</div>
-                <div class="habit-content">
-                    <div class="habit-title">Strategic Reading</div>
-                    <div class="habit-stat">Enhanced vocabulary & cognitive retention</div>
-                    <div class="habit-description">Early morning reading enhances retention and comprehension. Fortune 500 executives with morning reading habits show better decision-making capabilities and strategic thinking.</div>
-                    <div class="evidence-box">
-                        <div class="evidence-title">Scientific Evidence: 🧠</div>
-                        <div class="evidence-text">Cambridge University 14-year+ longitudinal study show reading prevents cognitive decline, increases brain volume, and enhances language development across age groups.</div>
+                <div class="habit-header">
+                    <div class="habit-icon">📚</div>
+                    <div class="habit-title-section">
+                        <div class="habit-title">Strategic Reading</div>
+                        <div class="habit-stat">Enhanced vocabulary & cognitive retention</div>
                     </div>
+                </div>
+                <div class="habit-description">Early morning reading enhances retention and comprehension. Fortune 500 executives with morning reading habits show better decision-making capabilities and strategic thinking.</div>
+                <div class="evidence-box">
+                    <div class="evidence-header">
+                        <span style="font-size: 16px;">🧠</span>
+                        <div class="evidence-title">Scientific Evidence:</div>
+                    </div>
+                    <div class="evidence-text">Cambridge University 14-year+ longitudinal study show reading prevents cognitive decline, increases brain volume, and enhances language development across age groups.</div>
                 </div>
             </div>
             
             <div class="habit">
-                <div class="habit-icon">💧</div>
-                <div class="habit-content">
-                    <div class="habit-title">Strategic Hydration</div>
-                    <div class="habit-stat">12% improvement in cognitive function</div>
-                    <div class="habit-description">20-32 ounces of water with electrolytes upon waking kickstarts metabolism, combats sleep dehydration, and enhances physical performance throughout the day.</div>
-                    <div class="evidence-box">
-                        <div class="evidence-title">Scientific Evidence: 🧠</div>
-                        <div class="evidence-text">Multiple studies show proper morning hydration with electrolytes improves cellular hydration, reduces cortisol response to exercise, and enhances performance metrics.</div>
+                <div class="habit-header">
+                    <div class="habit-icon">💧</div>
+                    <div class="habit-title-section">
+                        <div class="habit-title">Strategic Hydration</div>
+                        <div class="habit-stat">12% improvement in cognitive function</div>
                     </div>
+                </div>
+                <div class="habit-description">20-32 ounces of water with electrolytes upon waking kickstarts metabolism, combats sleep dehydration, and enhances physical performance throughout the day.</div>
+                <div class="evidence-box">
+                    <div class="evidence-header">
+                        <span style="font-size: 16px;">🧠</span>
+                        <div class="evidence-title">Scientific Evidence:</div>
+                    </div>
+                    <div class="evidence-text">Multiple studies show proper morning hydration with electrolytes improves cellular hydration, reduces cortisol response to exercise, and enhances performance metrics.</div>
                 </div>
             </div>
         </div>
