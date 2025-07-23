@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Science of Morning Excellence</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .infographic {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            max-width: 800px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="90" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="10" cy="90" r="1.5" fill="rgba(255,255,255,0.1)"/></svg>');
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .key-stat {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+            margin: 0;
+        }
+
+        .key-stat h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .key-stat p {
+            font-size: 1.1em;
+            line-height: 1.5;
+        }
+
+        .habits-container {
+            padding: 40px 30px;
+        }
+
+        .habits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .habit-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            padding: 25px;
+            border-left: 5px solid;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .habit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .habit-card:nth-child(1) { border-left-color: #9b59b6; }
+        .habit-card:nth-child(2) { border-left-color: #3498db; }
+        .habit-card:nth-child(3) { border-left-color: #e74c3c; }
+        .habit-card:nth-child(4) { border-left-color: #f39c12; }
+        .habit-card:nth-child(5) { border-left-color: #2ecc71; }
+
+        .habit-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .habit-card:nth-child(1) .habit-icon::before { content: '🧘'; }
+        .habit-card:nth-child(2) .habit-icon::before { content: '🧊'; }
+        .habit-card:nth-child(3) .habit-icon::before { content: '📝'; }
+        .habit-card:nth-child(4) .habit-icon::before { content: '📚'; }
+        .habit-card:nth-child(5) .habit-icon::before { content: '💧'; }
+
+        .habit-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 12px;
+        }
+
+        .habit-benefit {
+            color: #e74c3c;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .habit-description {
+            color: #5a6c7d;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+
+        .bottom-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .bottom-section h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .bottom-section p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .habits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .infographic {
+                margin: 10px;
+            }
+        }
+
+        /* Subtle animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .habit-card {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .habit-card:nth-child(1) { animation-delay: 0.1s; }
+        .habit-card:nth-child(2) { animation-delay: 0.2s; }
+        .habit-card:nth-child(3) { animation-delay: 0.3s; }
+        .habit-card:nth-child(4) { animation-delay: 0.4s; }
+        .habit-card:nth-child(5) { animation-delay: 0.5s; }
+    </style>
+</head>
+<body>
+    <div class="infographic">
+        <!-- Header Section -->
+        <div class="header">
+            <h1>The Science of Morning Excellence</h1>
+            <p class="subtitle">5 Evidence-Based Habits That Transform Lives</p>
+        </div>
+
+        <!-- Key Statistic -->
+        <div class="key-stat">
+            <h2>🚀 15% Cognitive Performance Boost</h2>
+            <p>These five habits, when integrated with your existing exercise routine, can enhance cognitive performance, improve mood and stress resilience, and create lasting positive changes in productivity and life satisfaction.</p>
+        </div>
+
+        <!-- Main Content -->
+        <div class="habits-container">
+            <h2 class="section-title">5 Evidence-Based Morning Habits</h2>
+            <p class="section-subtitle">Transform your mornings with science-backed practices</p>
+            
+            <div class="habits-grid">
+                <div class="habit-card">
+                    <span class="habit-icon"></span>
+                    <h3 class="habit-title">Meditation & Mindfulness</h3>
+                    <p class="habit-benefit">13 minutes daily = Improved attention & memory</p>
+                    <p class="habit-description">Harvard studies show 8 weeks of morning meditation physically changes brain structure, increasing cortical thickness and reducing stress reactivity.</p>
+                </div>
+
+                <div class="habit-card">
+                    <span class="habit-icon"></span>
+                    <h3 class="habit-title">Cold Exposure Therapy</h3>
+                    <p class="habit-benefit">29% reduction in sick days</p>
+                    <p class="habit-description">11 minutes total per week at 50-59°F boosts immune response, activates brown fat, and increases metabolic rate by up to 16%.</p>
+                </div>
+
+                <div class="habit-card">
+                    <span class="habit-icon"></span>
+                    <h3 class="habit-title">Gratitude Journaling</h3>
+                    <p class="habit-benefit">42% higher goal completion rate</p>
+                    <p class="habit-description">Writing down 3 things you're grateful for creates lasting brain changes in the medial prefrontal cortex while reducing cortisol levels.</p>
+                </div>
+
+                <div class="habit-card">
+                    <span class="habit-icon"></span>
+                    <h3 class="habit-title">Strategic Reading</h3>
+                    <p class="habit-benefit">Enhanced vocabulary & cognitive retention</p>
+                    <p class="habit-description">Early morning reading enhances retention and comprehension. Fortune 500 executives with morning reading habits show better decision-making capabilities.</p>
+                </div>
+
+                <div class="habit-card">
+                    <span class="habit-icon"></span>
+                    <h3 class="habit-title">Strategic Hydration</h3>
+                    <p class="habit-benefit">12% improvement in cognitive function</p>
+                    <p class="habit-description">20-32 ounces of water with electrolytes upon waking kickstarts metabolism and enhances physical performance throughout the day.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Section -->
+        <div class="bottom-section">
+            <h3>💡 Pro Tip: Habit Stacking</h3>
+            <p>Use your existing 4:30 AM exercise routine as an anchor. Layer these evidence-based practices using "After I [existing habit], I will [new habit]" to maximize success and create lasting change.</p>
+        </div>
+    </div>
+</body>
+</html>
